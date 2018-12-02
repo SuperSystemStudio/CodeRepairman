@@ -1,3 +1,6 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from flask import Flask, request
 import json
 import os
@@ -6,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def index():
-    path = 'workspace/www'  # 项目目录
+    path = '/home/www/test/'  # 项目目录
     return _hooks(path, request.data)
 
 def _hooks(path, data):
