@@ -6,6 +6,7 @@ before_install:
   - pip install --upgrade pyflakes
 script:
   - pyflakes main.py
+  - python main.py
 branches:
   only:
     - master
