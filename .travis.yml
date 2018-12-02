@@ -4,6 +4,7 @@ python:
   - '3.6'
 before_install: 
   - pip install --upgrade pyflakes
+  - pip install flask
 script:
   - pyflakes main.py
   - python main.py
