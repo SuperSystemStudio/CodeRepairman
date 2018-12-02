@@ -1,38 +1,23 @@
-import subprocess
-import time
-from tools.sendMessageToDD import sendMessage
-def add():
-    cmd = "git add ."
-    process = subprocess.Popen(cmd, shell=True)
-    process.wait()
-    returnCode = process.returncode
+from flask import Flask, request
+import json
+import os
 
-    if returnCode != 0:
-        print(" add returnCode", returnCode)
-    else:
-        commit()
-commitMessage = ""
-def commit():
-    global commitMessage
-    commitMessage = time.strftime("%Y/%m/%d %H:%M")
-    cmd = "git commit -m  '{}'".format(commitMessage)
+app = Flask(__name__)
 
-    # print("cmd = " + cmd)
-    process = subprocess.Popen(cmd, shell=True)
-    process.wait()
-    push()
-def push():
-    cmd = "git push origin master"
-    process = subprocess.Popen(cmd, shell=True)
-    process.wait()
-    returnCode = process.returncode
-    if returnCode != 0:
-        print("push returnCode", returnCode)
+@app.route('/', methods=['POST'])
+def index():
+    path = 'workspace/www'  # 项目目录
+    return _hooks(path, request.data)
+
+def _hooks(path, data):
+    post_data = json.loads(data)
+    ref = post_data['ref']
+    branch_name = ref.split('/')[-1]
+    status = os.system("cd %s && git checkout %s && git pull --rebase" % (path, branch_name,))
+    if status == 0:
+        return 'success'
     else:
-        sendMessage({
-            "fileName": "api文档 : \n\n已更新，请注意查看！ \n" +"\n更新信息: {}".format(
-                commitMessage),
-            "text": time.strftime("%Y/%m/%d %H:%M"),
-            "error": False
-        })
-add()
+        return 'error'
+
+if __name__ == '__main__':
+    app.run(threaded=True, debug=True)
