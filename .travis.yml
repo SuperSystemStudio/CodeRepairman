@@ -1,0 +1,11 @@
+language: python
+python:  
+  - '3.5'
+  - '3.6'
+before_install: 
+  - pip install --upgrade pyflakes
+script:
+  - pyflakes main.py
+branches:
+  only:
+    - master
