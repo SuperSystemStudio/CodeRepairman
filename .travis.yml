@@ -6,8 +6,7 @@ before_install:
   - pip install --upgrade pyflakes
   - pip install flask
 script:
-  - pyflakes main.py
-  - python main.py
+  - pyflakes web_hooks_flask.py
 branches:
   only:
     - master
