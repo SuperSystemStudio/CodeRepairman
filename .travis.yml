@@ -6,4 +6,5 @@ before_install:
   - pip install --upgrade pyflakes
   - pip install flask
 script:
-  - pyflakes web_hooks_flask.py
+  - pyflakes function_table.py
+  - pyflakes main.py
