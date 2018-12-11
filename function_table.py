@@ -1,5 +1,7 @@
 import random
 import sys
+# Public variable
+platform = sys.platform
 # begin
 def begin() :
     c = random.randint(1,2)
