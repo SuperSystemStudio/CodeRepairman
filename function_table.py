@@ -1,5 +1,6 @@
 import random
 import sys
+import test
 # Public variable
 platform = sys.platform
 # begin
@@ -16,3 +17,5 @@ def close():
         print('goodbye!')
     elif c == 2:
         print('see you again!')
+# test
+test.platform()
