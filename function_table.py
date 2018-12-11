@@ -8,5 +8,4 @@ def begin() :
     elif c == 2:
         print('hi')
 # Get system information
-def os():
-    platform = sys.platform
+platform = sys.platform
