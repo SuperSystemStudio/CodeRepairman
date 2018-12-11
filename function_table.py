@@ -9,4 +9,4 @@ def begin() :
         print('hi')
 # Get system information
 def os():
-    h = sys.platform
+    platform = sys.platform
