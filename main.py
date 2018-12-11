@@ -1,6 +1,6 @@
 # import list
-import function_table  
+import function_table
 
 
 # main
-function_table.begin()
+function_table.begin()                          # begin
