@@ -1,5 +1,5 @@
 import random
-
+import sys
 # begin
 def begin() :
     c = random.randint(1,2)
@@ -7,3 +7,6 @@ def begin() :
         print('hello world')
     elif c == 2:
         print('hi')
+# Get system information
+def os():
+    platform = sys.platform
