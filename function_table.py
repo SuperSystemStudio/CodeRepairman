@@ -13,5 +13,3 @@ def close():
         print('goodbye!')
     elif c == 2:
         print('see you again!')
-# Get system information
-platform = sys.platform
