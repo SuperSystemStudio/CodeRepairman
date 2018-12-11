@@ -9,6 +9,7 @@ def begin() :
         print('hello world')
     elif c == 2:
         print('hi')
+# close
 def close():
     c = random.randint(1,2)
     if c == 1:
