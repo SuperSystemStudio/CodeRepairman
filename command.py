@@ -10,20 +10,20 @@ def main():
         stop()
 # root
 def Login():
-    if username == 1:
+    if name == 1:
         print('Please input password')
         password=input()
         if password == '10000':
             print('welcome')
-            username = 'root'
+            name = 'root'
         else:
             print('Password error!')
     else:
         print('you are root')
 # stop 
 def stop():
-    if username == '1':
+    if name == '1':
         sys.exit()
-    elif username == 'root':
+    elif name == 'root':
         os._exit()
 main()
