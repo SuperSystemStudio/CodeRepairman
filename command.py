@@ -3,7 +3,6 @@ import sys
 # begin
 def init():
     name = 'user'
-    main()
 # main
 def main():
     command = input()
@@ -29,4 +28,3 @@ def stop():
         sys.exit()
     elif name == 'root':
         os._exit()
-init()
