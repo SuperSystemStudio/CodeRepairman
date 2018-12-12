@@ -1,8 +1,11 @@
 import os
 import sys
-name = 1
+# begin
+def begin():
+    name = 'user'
 # main
 def main():
+    begin()
     command = input()
     if command == 'su':
         Login() 
@@ -10,7 +13,7 @@ def main():
         stop()
 # root
 def Login():
-    if name == 1:
+    if name == 'user':
         print('Please input password')
         password=input()
         if password == '10000':
@@ -22,7 +25,7 @@ def Login():
         print('you are root')
 # stop 
 def stop():
-    if name == '1':
+    if name == 'user':
         sys.exit()
     elif name == 'root':
         os._exit()
