@@ -1,11 +1,11 @@
 import os
 import sys
 # begin
-def begin():
+def init():
     name = 'user'
+    main()
 # main
 def main():
-    begin()
     command = input()
     if command == 'su':
         Login() 
@@ -29,4 +29,4 @@ def stop():
         sys.exit()
     elif name == 'root':
         os._exit()
-main()
+init()
