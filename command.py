@@ -5,6 +5,7 @@ def main():
     mode=0
     true=1
     while true == 1:
+        print('Please enter the command')
         command = input()
         if command == 'su':
             if mode == 0:
