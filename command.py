@@ -15,7 +15,7 @@ def main():
             print('Password error!')
     else:
         print('you are root')
-    elif command == 'stop':
+    if command == 'stop':
         stop()
 # stop 
 def stop():
