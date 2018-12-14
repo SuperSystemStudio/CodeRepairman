@@ -1,6 +1,8 @@
 import os
 import sys
 import time
+import function_table
+platform = function_table.platform
 # main
 def main():
     mode=0
