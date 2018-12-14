@@ -4,4 +4,4 @@ import sys
 # Public variable
 platform = sys.platform
 
-command.main()
+command.init()
