@@ -1,13 +1,10 @@
 import os
 import sys
-mode=0
-# begin
-def init():
-    name='user'
-    print('现在你的用户名为',name)
-    main()
 # main
 def main():
+    name='user'
+    print('现在你的用户名为',name)
+    mode=0
     command = input()
     if command == 'su':
         if mode == 0:
