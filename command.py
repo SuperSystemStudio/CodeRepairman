@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 # main
 def main():
     mode=0
@@ -10,19 +11,20 @@ def main():
         if command == 'su':
             if mode == 0:
                 print('Please input password')
-            password=input()
-            if password == '10000':
-                print('welcome')
-                mode = 1
+                password=input()
+                if password == '10000':
+                    print('welcome')
+                    mode = 1
+                    print('now,you are root')
+            elif mode == 1:
+                print('you are root')
             else:
                 print('Password error!')
+        elif command == 'stop':
+            if mode == 0:
+                sys.exit()
+            elif mode == 1:
+                os._exit()
         else:
-            print('you are root')
-        if command == 'stop':
-            stop()
-# stop 
-def stop():
-    if mode == 0:
-        sys.exit()
-    elif mode == 1:
-        os._exit()
+            print(command,':no find the command')
+            time.sleep(1)
