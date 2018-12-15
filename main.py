@@ -1,9 +1,9 @@
 # import list
-import socketserver
 import sys
+import socketserver
 import function_table
 # Public variable
 platform = function_table.platform
 # main
 function_table.begin()
-socketserver.begin()
+socketserver.socket()

@@ -1,5 +1,5 @@
 import socket   #socket模块
-def begin():
+def socket():
     host='127.0.0.1'
     port=50007
     s= socket.socket(socket.AF_INET,socket.SOCK_STREAM)   #定义socket类型，网络通信，TCP
