@@ -6,4 +6,4 @@ import function_table
 platform = function_table.platform
 # main
 function_table.begin()
-socketserver.socket()
+socketserver.init

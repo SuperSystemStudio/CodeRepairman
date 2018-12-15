@@ -1,12 +1,47 @@
-import socket   #socket模块
-def socket():
-    host='127.0.0.1'
-    port=50007
-    s= socket.socket(socket.AF_INET,socket.SOCK_STREAM)   #定义socket类型，网络通信，TCP
-    s.bind((host,port))   #套接字绑定的IP与端口
-    s.listen(1)         #开始TCP监听,监听1个请求
-    while 1:
-        conn,addr=s.accept()   #接受TCP连接，并返回新的套接字与IP地址
-        print('Connectedby',addr)    #输出客户端的IP地址
-        while 1:
-            data=conn.recv(1024)    #把接收的数据实例化
+# import list
+import socket
+import os
+import time
+# Public variable
+mode=0
+true=1
+# main
+server = socket.socket() #获得socket实例
+#server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+server.bind(("localhost",9998)) #绑定ip port
+server.listen()  #开始监听
+
+while True: #第一层loop
+    print("等待客户端的连接...")
+    conn,addr = server.accept() #接受并建立与客户端的连接,程序在此处开始阻塞,只到有客户端连接进来...
+    print("新连接:",addr )
+    while True:
+
+        data = conn.recv(1024)
+        if not data:
+            print("客户端断开了...")
+            break #这里断开就会再次回到第一次外层的loop
+        print("收到命令:",data)
+        if data == b'su':
+            if mode == 0:
+                print('Please input password')
+                password = conn.recv(1024)
+                if password == '10000':
+                    print('welcome')
+                    mode = 1
+                    print('now,you are root')
+            elif mode == 1:
+                print('you are root')
+            else:
+                print('Password error!')
+        elif data == b'stop':
+            if mode == 0:
+                sys.exit()
+            elif mode == 1:
+                os._exit()
+        else:
+            print(data,':no find the command')
+            time.sleep(1)
+
+server.close()
