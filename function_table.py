@@ -1,5 +1,7 @@
 import random
 import sys
+import socket
+import time
 # Public variable
 platform = sys.platform
 # begin

@@ -3,3 +3,4 @@ function_table.pyc
 __pycache__/test.cpython-37.pyc
 __pycache__/command.cpython-37.pyc
 CodeRepairman.code-workspace
+.vscode/launch.json
