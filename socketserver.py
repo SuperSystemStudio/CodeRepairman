@@ -27,10 +27,8 @@ while True: #第一层loop
             if mode == 0:
                 print('Please input password')
                 password = conn.recv(1024)
-                if password == '10000':
-                    print('welcome')
-                    mode = 1
-                    print('now,you are root')
+                mode = 1
+                print('now,you are root')
             elif mode == 1:
                 print('you are root')
             else:

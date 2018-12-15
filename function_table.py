@@ -1,6 +1,5 @@
 import random
 import sys
-import time
 # Public variable
 platform = sys.platform
 # begin
