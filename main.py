@@ -1,7 +1,6 @@
 # import list
-import command
-import sys
+import function_table
 # Public variable
-platform = sys.platform
-
-command.main()
+platform = function_table.platform
+# main
+function_table.begin()
