@@ -3,7 +3,7 @@ import socket
 import os
 import time
 import function_table
-function_table.begin
+function_table.begin()
 # Public variable
 mode=0
 true=1
