@@ -47,9 +47,10 @@ def ssh():
 
     server.close()
 try:
-    ssh= threading.Thread(target=ssh)#创建线程
+    ssh=threading.Thread(target=ssh)#创建线程
     ssh.setDaemon(True)
     ssh.start()
     ssh.join()
 except:
    print ("Error: 无法启动线程")
+   os._exit(0)
