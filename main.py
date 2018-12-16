@@ -12,8 +12,8 @@ function_table.begin
 def ssh():
     server = socket.socket() #获得socket实例
     #server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-
     server.bind(("localhost",22)) #绑定ip port
+    print('ssh is running at 127.0.0.1:22')
     server.listen()  #开始监听
     mode=0
     while True: #第一层loop
@@ -46,11 +46,16 @@ def ssh():
                 time.sleep(1)
 
     server.close()
+def main():
 try:
     ssh=threading.Thread(target=ssh)#创建线程
+    main=threading.Thread(target=main)
+    # true为后台运行，false为前台运行
+    main.setDaemon(False)
     ssh.setDaemon(True)
+    main.start()
     ssh.start()
-    ssh.join()
+    main.join()
 except:
    print ("Error: 无法启动线程")
    os._exit(0)
