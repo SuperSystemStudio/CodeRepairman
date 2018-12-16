@@ -17,13 +17,13 @@ def ssh():
     server.listen()  #开始监听
     mode=0
     while True: #第一层loop
-        print("等待客户端的连接...")
+        print("Waiting for client connection")
         conn,addr = server.accept() #接受并建立与客户端的连接,程序在此处开始阻塞,只到有客户端连接进来...
         print("[new user]>>>",addr )
         while True:
             data = conn.recv(1024)
             if not data:
-                print("客户端断开了...")
+                print("client is disconnected")
                 break #这里断开就会再次回到第一次外层的loop
                 print("收到命令:",data)
             if data == b'su':
@@ -41,8 +41,8 @@ def ssh():
                 elif c == 2:
                     conn.sendall(bytes('goodbye!',encoding="utf-8"))
             else:
-                print(data,':no find the command')
-                conn.sendall(bytes('no find the command',encoding="utf-8"))
+                print('Error: no find the command')
+                conn.sendall(bytes('Error: no find the command',encoding="utf-8"))
                 time.sleep(1)
 
     server.close()
@@ -58,5 +58,5 @@ try:
     ssh.start()
     main.join()
 except:
-   print ("Error: 无法启动线程")
+   print ("Error: Unable to start threads")
    os._exit(0)
