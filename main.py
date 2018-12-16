@@ -7,8 +7,7 @@ import random
 import threading
 function_table.begin
 # Public variable
-mode=0
-true=1
+
 # main
 def ssh():
     server = socket.socket() #获得socket实例
@@ -16,7 +15,7 @@ def ssh():
 
     server.bind(("localhost",22)) #绑定ip port
     server.listen()  #开始监听
-
+    mode=0
     while True: #第一层loop
         print("等待客户端的连接...")
         conn,addr = server.accept() #接受并建立与客户端的连接,程序在此处开始阻塞,只到有客户端连接进来...
@@ -34,7 +33,7 @@ def ssh():
                 elif mode == 1:
                     conn.sendall(bytes("you are already root!",encoding="utf-8"))
             elif data == b'stop':
-                os._exit()
+                os._exit(0)
                 function_table.close()
                 c = random.randint(1,2)
                 if c == 1:
@@ -48,8 +47,9 @@ def ssh():
 
     server.close()
 try:
-   t= threading.Thread(target=ssh)#创建线程
-   t.setDaemon(True)
-   t.start()
+    ssh= threading.Thread(target=ssh)#创建线程
+    ssh.setDaemon(True)
+    ssh.start()
+    ssh.join()
 except:
    print ("Error: 无法启动线程")
