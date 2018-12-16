@@ -3,7 +3,8 @@ import socket
 import os
 import time
 import function_table
-function_table.begin()
+import random
+function_table.begin
 # Public variable
 mode=0
 true=1
@@ -17,7 +18,7 @@ server.listen()  #开始监听
 while True: #第一层loop
     print("等待客户端的连接...")
     conn,addr = server.accept() #接受并建立与客户端的连接,程序在此处开始阻塞,只到有客户端连接进来...
-    print("新连接:",addr )
+    print("[new user]>>>",addr )
     while True:
 
         data = conn.recv(1024)
@@ -32,12 +33,16 @@ while True: #第一层loop
             elif mode == 1:
                 conn.sendall(bytes("you are already root!",encoding="utf-8"))
         elif data == b'stop':
-            if mode == 0:
-                sys.exit()
-            elif mode == 1:
-                os._exit()
+            os._exit()
+            function_table.close()
+            c = random.randint(1,2)
+            if c == 1:
+                conn.sendall(bytes("see you again!",encoding="utf-8"))
+            elif c == 2:
+                conn.sendall(bytes('goodbye!',encoding="utf-8"))
         else:
             print(data,':no find the command')
+            conn.sendall(bytes('no find the command',encoding="utf-8"))
             time.sleep(1)
 
 server.close()
