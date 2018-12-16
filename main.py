@@ -4,7 +4,7 @@ import os
 import time
 import function_table
 import random
-import _thread
+import threading
 function_table.begin
 # Public variable
 mode=0
