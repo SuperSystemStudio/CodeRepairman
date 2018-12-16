@@ -11,7 +11,7 @@ true=1
 server = socket.socket() #获得socket实例
 #server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-server.bind(("localhost",9998)) #绑定ip port
+server.bind(("localhost",22)) #绑定ip port
 server.listen()  #开始监听
 
 while True: #第一层loop

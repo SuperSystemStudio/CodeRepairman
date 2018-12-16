@@ -5,4 +5,3 @@ from SSH import *
 platform = function_table.platform
 # main
 function_table.begin()
-SSH.*
