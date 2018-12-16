@@ -47,6 +47,7 @@ def ssh():
 
     server.close()
 def main():
+    pass
 try:
     ssh=threading.Thread(target=ssh)#创建线程
     main=threading.Thread(target=main)
