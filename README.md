@@ -1,1 +1,1 @@
-# CodeRepairman [![Build Status](https://travis-ci.com/SuperSystemStudio/CodeRepairman.svg?branch=master)](https://travis-ci.com/SuperSystemStudio/CodeRepairman)
+# CodeRepairman [![Build Status](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman.svg?branch=master)](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman)
