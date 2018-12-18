@@ -9,3 +9,5 @@ before_install:
 script:
   - pyflakes function_table.py
   - pyflakes main.py
+notifications:
+   webhooks: ${Webhooks}

@@ -9,21 +9,21 @@ function_table.begin
 # Public variable
 
 # main
-def ssh():
+def sshserver():
     server = socket.socket() #获得socket实例
     #server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-
     server.bind(("localhost",22)) #绑定ip port
+    print('ssh is running at 127.0.0.1:22')
     server.listen()  #开始监听
     mode=0
     while True: #第一层loop
-        print("等待客户端的连接...")
+        print("Waiting for client connection")
         conn,addr = server.accept() #接受并建立与客户端的连接,程序在此处开始阻塞,只到有客户端连接进来...
         print("[new user]>>>",addr )
         while True:
             data = conn.recv(1024)
             if not data:
-                print("客户端断开了...")
+                print("client is disconnected")
                 break #这里断开就会再次回到第一次外层的loop
                 print("收到命令:",data)
             if data == b'su':
@@ -41,16 +41,23 @@ def ssh():
                 elif c == 2:
                     conn.sendall(bytes('goodbye!',encoding="utf-8"))
             else:
-                print(data,':no find the command')
-                conn.sendall(bytes('no find the command',encoding="utf-8"))
+                print('Error: no find the command')
+                conn.sendall(bytes('Error: no find the command',encoding="utf-8"))
                 time.sleep(1)
 
     server.close()
+def main():
+    pass
 try:
-    ssh=threading.Thread(target=ssh)#创建线程
+    ssh=threading.Thread(target=sshserver)#创建线程
+    main=threading.Thread(target=main)
+    # true为后台运行，false为前台运行
+    main.setDaemon(False)
     ssh.setDaemon(True)
+    main.start()
     ssh.start()
-    ssh.join()
+    ssh.join(10)
+    main.join()
 except:
-   print ("Error: 无法启动线程")
+   print ("Error: Unable to start threads")
    os._exit(0)
