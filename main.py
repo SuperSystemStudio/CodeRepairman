@@ -9,7 +9,7 @@ function_table.begin
 # Public variable
 
 # main
-def ssh():
+def sshserver():
     server = socket.socket() #获得socket实例
     #server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server.bind(("localhost",22)) #绑定ip port
@@ -49,7 +49,7 @@ def ssh():
 def main():
     pass
 try:
-    ssh=threading.Thread(target=ssh)#创建线程
+    ssh=threading.Thread(target=sshserver)#创建线程
     main=threading.Thread(target=main)
     # true为后台运行，false为前台运行
     main.setDaemon(False)
