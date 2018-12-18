@@ -56,6 +56,7 @@ try:
     ssh.setDaemon(True)
     main.start()
     ssh.start()
+    ssh.join(10)
     main.join()
 except:
    print ("Error: Unable to start threads")
