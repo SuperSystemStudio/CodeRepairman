@@ -10,7 +10,7 @@ function_table.begin
 # Public variable
 platform = sys.platform
 # main
-def ssh():
+def sshserver():
     server = socket.socket() #获得socket实例
     #server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     if platform == 'win32':
@@ -52,13 +52,14 @@ def ssh():
 def main():
     pass
 try:
-    ssh=threading.Thread(target=ssh)#创建线程
+    ssh=threading.Thread(target=sshserver)#创建线程
     main=threading.Thread(target=main)
     # true为后台运行，false为前台运行
     main.setDaemon(False)
     ssh.setDaemon(True)
     main.start()
     ssh.start()
+    ssh.join(10)
     main.join()
 except:
    print ("Error: Unable to start threads")
