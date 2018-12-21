@@ -5,3 +5,4 @@ def platform():
         print('This is windows')
     if platform == 'liunx':
         print('this is liunx')
+    print(platform)

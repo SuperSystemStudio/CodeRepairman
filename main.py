@@ -5,15 +5,18 @@ import time
 import function_table
 import random
 import threading
+import sys
 function_table.begin
 # Public variable
-
+platform = sys.platform
 # main
 def ssh():
     server = socket.socket() #获得socket实例
     #server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    server.bind(("localhost",22)) #绑定ip port
-    print('ssh is running at 127.0.0.1:22')
+    if platform == 'win32':
+        server.bind(("localhost",22)) #绑定ip port
+        print('ssh is running at 127.0.0.1:22')
+    elif platform == 'win64'
     server.listen()  #开始监听
     mode=0
     while True: #第一层loop
