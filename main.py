@@ -17,7 +17,7 @@ def sshserver():
         port = 8888
     else:
         port = 22
-    server.bind(("localhost",port)) #绑定ip port
+    server.bind(("localhost",int(port))) #绑定ip port
     print('ssh is running at 127.0.0.1:22')
     server.listen()  #开始监听
     mode=0
