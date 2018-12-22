@@ -13,10 +13,12 @@ platform = sys.platform
 def sshserver():
     server = socket.socket() #获得socket实例
     #server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    if platform == 'win32':
-        server.bind(("localhost",22)) #绑定ip port
-        print('ssh is running at 127.0.0.1:22')
-    elif platform == 'win64'
+    if platform == 'liunx':
+        port = 8888
+    else:
+        port = 22
+    server.bind(("localhost",port)) #绑定ip port
+    print('ssh is running at 127.0.0.1:22')
     server.listen()  #开始监听
     mode=0
     while True: #第一层loop
