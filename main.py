@@ -30,6 +30,7 @@ def sshserver():
                 print("client is disconnected")
                 break #这里断开就会再次回到第一次外层的loop
                 print("收到命令:",data)
+                conn.sendall(bytes("[get command]>>>",data))
             if data == b'su':
                 if mode == 0:
                     mode = 1
