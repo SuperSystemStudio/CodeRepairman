@@ -12,7 +12,6 @@ platform = sys.platform
 # main
 def sshserver():
     server = socket.socket() #获得socket实例
-    #server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     if platform == 'liunx':
         port = 8888
     else:
@@ -24,7 +23,7 @@ def sshserver():
     while True: #第一层loop
         print("Waiting for client connection")
         conn,addr = server.accept() #接受并建立与客户端的连接,程序在此处开始阻塞,只到有客户端连接进来...
-        print("[new user]>>>",addr )
+        print("[system]>>>a user join our server,it is",addr )
         while True:
             data = conn.recv(1024)
             if not data:
