@@ -15,4 +15,4 @@ script:
 after_success:
   - codecov
 notifications:
-   webhooks: ${Webhooks}
+  - webhooks: ${Webhooks}
