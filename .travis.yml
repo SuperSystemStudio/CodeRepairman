@@ -6,11 +6,6 @@ python:
 before_install:
   - pip install --upgrade pyflakes
   - pip install flask
-  – pip install codecov
 script:
   - pyflakes function_table.py
   - pyflakes main.py
-  – coverage run main.py
-  – coverage run function_table.py
-after_success:
-  - codecov
