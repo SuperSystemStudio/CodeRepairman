@@ -2,6 +2,7 @@ language: python
 os: liunx
 python:
   - '3.6'
+  - '3.5'
 before_install:
   - pip install --upgrade pyflakes
   - pip install flask
