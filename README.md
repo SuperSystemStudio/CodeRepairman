@@ -2,5 +2,5 @@
 # Branch condition
 master is [![Build Status](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman.svg?branch=master)](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman) [![CodeFactor](https://www.codefactor.io/repository/github/supersystemstudio/coderepairwoman/badge/master)](https://www.codefactor.io/repository/github/supersystemstudio/coderepairwoman/overview/master)
 
-develop is [![Build Status](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman.svg?branch=develop)](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman) [![CodeFactor(https://www.codefactor.io/repository/github/supersystemstudio/coderepairwoman/badge/develop)(https://www.codefactor.io/repository/github/supersystemstudio/coderepairwoman/overview/develop)
+develop is [![Build Status](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman.svg?branch=develop)](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman) [![CodeFactor](https://www.codefactor.io/repository/github/supersystemstudio/coderepairwoman/badge/develop)(https://www.codefactor.io/repository/github/supersystemstudio/coderepairwoman/overview/develop)
 # 
