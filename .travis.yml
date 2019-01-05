@@ -14,4 +14,3 @@ script:
   – coverage run function_table.py
 after_success:
   - codecov
-  
