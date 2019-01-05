@@ -64,5 +64,7 @@ try:
     ssh.join(10)
     main.join()
 else:
-   print ("Error: Unable to start threads")
-   os._exit(0)
+    print ("Error: Unable to start threads")
+    os._exit(0)
+finally:
+    print('run finish!')
