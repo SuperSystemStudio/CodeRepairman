@@ -2,10 +2,16 @@ language: python
 os: liunx
 python:
   - '3.6'
-  - '3.5'
 before_install:
   - pip install --upgrade pyflakes
   - pip install flask
 script:
   - pyflakes function_table.py
   - pyflakes main.py
+deploy:   
+    provider: pypi
+    user: Mryan     # pypi 用户名   
+    password: [password]
+on:
+    python: '3.6'
+    tags: true
