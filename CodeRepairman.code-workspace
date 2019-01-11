@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "H:\\BackupTool"
+		},
+		{
+			"path": "I:\\TelecontrolCodeRepairwoman"
 		}
 	],
 	"settings": {}

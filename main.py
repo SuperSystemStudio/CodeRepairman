@@ -5,27 +5,32 @@ import time
 import function_table
 import random
 import threading
+import sys
 function_table.begin
 # Public variable
-
+platform = sys.platform
 # main
 def sshserver():
     server = socket.socket() #获得socket实例
-    #server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    server.bind(("localhost",22)) #绑定ip port
+    if platform == 'liunx':
+        port = 8888
+    else:
+        port = 22
+    server.bind(("localhost",int(port))) #绑定ip port
     print('ssh is running at 127.0.0.1:22')
     server.listen()  #开始监听
     mode=0
     while True: #第一层loop
         print("Waiting for client connection")
         conn,addr = server.accept() #接受并建立与客户端的连接,程序在此处开始阻塞,只到有客户端连接进来...
-        print("[new user]>>>",addr )
+        print("[system]>>>a user join in our server,it is",addr)
         while True:
             data = conn.recv(1024)
             if not data:
                 print("client is disconnected")
                 break #这里断开就会再次回到第一次外层的loop
                 print("收到命令:",data)
+                conn.sendall(bytes("[get command]>>>",data,encoding="utf-8"))
             if data == b'su':
                 if mode == 0:
                     mode = 1
@@ -58,6 +63,5 @@ try:
     ssh.start()
     ssh.join(10)
     main.join()
-except:
-   print ("Error: Unable to start threads")
-   os._exit(0)
+finally:
+    print('run finish!')
