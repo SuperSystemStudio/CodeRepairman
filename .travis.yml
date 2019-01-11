@@ -11,7 +11,7 @@ script:
 deploy:   
     provider: pypi
     user: Mryan     # pypi 用户名   
-    password: [password]
+    password: A13788045733
 on:
     python: '3.6'
     tags: true
