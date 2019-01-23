@@ -3,9 +3,8 @@ This is a operating system.It is Based on liunx and Minecraft
 
 | branches | build | everyone |
 | :------: | :------: | :------: |
-| master | [![Build Status](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman.svg?branch=master)](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman) | easy |
-| develop | [![Build Status](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman.svg?branch=develop)](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman) | X |
-| run | √ | √ |
+| master | [![Build Status](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman.svg?branch=master)](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman) |  |
+| develop | [![Build Status](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman.svg?branch=develop)](https://travis-ci.com/SuperSystemStudio/CodeRepairwoman) |  |
 
 
 # Branch condition
